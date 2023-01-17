@@ -1,0 +1,41 @@
+# user info
+user:
+  name: Acerkaio
+  first_name: Acer
+  last_name: Kaio
+  email: what667172@163.com
+  domain: https://www.acerkaio.top/
+  avatar: https://pic.imgdb.cn/item/63c16146be43e0d30e78599e.jpg
+  describe: Acerkaio 的小窝
+  ruleText: 确保您的网站内容积极向上，文章至少20篇，部署HTTPS，除特殊贡献。
+
+# logo
+favicon:
+  logo: https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png
+  icon16: https://pic.imgdb.cn/item/630dc55e16f2c2beb1efd163.png
+  icon32: https://pic.imgdb.cn/item/630dc58516f2c2beb1eff192.png
+  appleTouchIcon: https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png
+  webmanifest:
+  visibilitychange: true
+  hidden: /failure.ico # Displays an icon when not visible
+  showText: (/≧▽≦/)咦！又好了！
+  hideText: (●—●)喔哟，崩溃啦！
+
+# links
+links:
+  - name: 白云苍狗 # name
+    url: //www.imalun.com/ # url
+    image: //www.imalun.com/images/avatar.jpg # avater
+    desc: 醒，亦在人间；梦，亦在人间 # description
+  - name: _6872_
+    url: //www.cnblogs.com/kth-element/#/c/subject/category/default.html
+    image: //cdn.luogu.com.cn/upload/usericon/341353.png
+    desc: たせんりのみちもいっぽから 石のようにかたい そんな意志で
+  - name: FiresonZ
+    url: //blog.firesonz.top/
+    image: //blog.firesonz.top/images/avatar.webp
+    desc: Oier
+  - name: Scorpio_Limit
+    url: //scorpio-limit.github.io/
+    image: //cdn.luogu.com.cn/upload/usericon/532992.png
+    desc: 「我劝天公重抖擞， 不拘一格降人才。 —— 龚自珍《己亥杂诗》」
