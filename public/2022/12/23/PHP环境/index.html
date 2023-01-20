@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="0. 前言ε&#x3D;(´ο｀*)))唉，为了以后不掉坑，现在做个笔记。 1. PHP安装1. 下载 PHP我的下载：VS16 x64 Non Thread Safe (2022-Dec-06 15:55:22) 官方下载地址：https:&#x2F;&#x2F;windows.php.n… 2. 修改文件进入目录，拷贝php.ini-production一份命名为php.ini作为php配置文件 3. 配置php.in设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP环境">
+<meta property="og:url" content="https://www.acerkaio.top/2022/12/23/PHP%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="Acerkaio">
+<meta property="og:description" content="0. 前言ε&#x3D;(´ο｀*)))唉，为了以后不掉坑，现在做个笔记。 1. PHP安装1. 下载 PHP我的下载：VS16 x64 Non Thread Safe (2022-Dec-06 15:55:22) 官方下载地址：https:&#x2F;&#x2F;windows.php.n… 2. 修改文件进入目录，拷贝php.ini-production一份命名为php.ini作为php配置文件 3. 配置php.in设置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/63a57be708b68301636112b0.jpg">
+<meta property="article:published_time" content="2022-12-23T09:56:46.000Z">
+<meta property="article:modified_time" content="2022-12-23T11:08:28.000Z">
+<meta property="article:author" content="Acerkaio">
+<meta property="article:tag" content="创作">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/63a57be708b68301636112b0.jpg">
+
+
+<title >PHP环境</title>
+
+<!-- Favicon -->
+
+    <link href='https://pic.imgdb.cn/item/630dc55e16f2c2beb1efd163.png?v=v1.1.10' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='https://pic.imgdb.cn/item/630dc58516f2c2beb1eff192.png?v=v1.1.10' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png?v=v1.1.10' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
+
+
+    
+
+    
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"www.acerkaio.top","author":"Acerkaio","root":"/","typed_text":["OIer"],"favicon":{"logo":"https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png","icon16":"https://pic.imgdb.cn/item/630dc55e16f2c2beb1efd163.png","icon32":"https://pic.imgdb.cn/item/630dc58516f2c2beb1eff192.png","appleTouchIcon":"https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png","webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"网络错误，请刷新重试！"},"theme_version":"v1.1.10","theme":{"switch":true,"default":"auto"},"search":{"enable":false,"type":"engine","href":"https://www.google.com/search?q=site:","domain":null},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated."},"creative_commons":{"license":"by-nc-sa","language":"deed.zh","post":true,"clipboard":true},"swup":false};</script>
+
+<!-- Theme mode css -->
+
+    <link data-swup-theme="style-light" rel="stylesheet" href="/css/style-light.css?v=v1.1.10" id="trm-switch-style">
+    <link data-swup-theme="style-dark" rel="stylesheet" href="/css/style-dark.css?v=v1.1.10" id="trm-switch-style">
+    <script>
+        let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+        let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+        let themeMode = catchMode === 'style-dark' ? 'style-light' : 'style-dark';
+        let linkdom = document.querySelector('[data-swup-theme='+themeMode+']');
+        if(linkdom) linkdom.remove();
+    </script>
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style=" position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+			<a href="/" class="trm-logo-frame trm-anima-link">
+				
+					<img src="https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png" alt="logo">
+				
+				
+					<div class="trm-logo-text">
+						Kaio<span>Acer</span>
+					</div>
+				
+			</a>
+			<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+
+			<!-- menu -->
+			<div class="trm-menu">
+				<nav>
+					<ul>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/" target="">
+								Home
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/archives/" target="">
+								Archives
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/links/" target="">
+								Links
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/about/" target="">
+								About
+							</a>
+							
+						</li>
+						
+					</ul>
+				</nav>
+			</div>
+			<!-- menu end -->
+			
+			<!-- mode switcher place -->
+			
+			<div class="trm-mode-switcher-place">
+				<!-- <div class="trm-hidden-switcher"> -->
+					<div class="trm-mode-switcher">
+					  <i class="far fa-sun"></i>
+					  <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+					  <label class="trm-swich" for="trm-swich"></label>
+					  <i class="far fa-moon"></i>
+					</div>
+				  <!-- </div> -->
+			</div>
+			
+			<!-- mode switcher place end -->
+
+			 
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img src="/img/banner.png" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            PHP环境
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2022
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20"><img class="trm-avatar" src="https://pic.imgdb.cn/item/63c16146be43e0d30e78599e.jpg" alt="Avatar"> </div>
+    <h5 class="trm-name trm-mb-15">
+        Acerkaio
+    </h5>
+    
+    <div class="trm-label">
+        I`m
+        <span class="trm-typed-text">
+            <!-- Words for theme.user.typedText -->
+        </span>
+    </div>
+    
+</div>
+<!-- card header end -->
+
+<!-- sidebar social -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+
+<div class="trm-social">
+    
+        <a href="https://github.com/acerkaio" title="Github" rel="nofollow" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.luogu.com.cn/user/514850" title="Luogu" rel="nofollow" target="_blank">
+            <i class="fas fa-code"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+
+<!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Earth
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                City:
+            </div>
+            <div class="trm-label trm-label-light">
+                Ganzhou
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                Age:
+            </div>
+            <div class="trm-label trm-label-light">
+                13
+            </div>
+        </li>
+    
+</ul>
+
+<!-- info end -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<!-- action button -->
+<div class="text-center">
+    <a href="mailto:what667172@163.com" class="trm-btn">
+        Contact Me
+        <i class="far fa-envelope"></i>
+    </a>
+</div>
+<!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="far fa-calendar-alt trm-icon"></i><br>
+            12/23
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="far fa-clock trm-icon"></i><br>
+            05:56
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="far fa-user trm-icon"></i><br>
+            Acerkaio
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article class="trm-publication">
+    <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>ε=(´ο｀*)))唉，为了以后不掉坑，现在做个笔记。</p>
+<h2 id="1-PHP安装"><a href="#1-PHP安装" class="headerlink" title="1. PHP安装"></a>1. PHP安装</h2><h3 id="1-下载-PHP"><a href="#1-下载-PHP" class="headerlink" title="1. 下载 PHP"></a>1. 下载 PHP</h3><p>我的下载：VS16 x64 Non Thread Safe (2022-Dec-06 15:55:22)</p>
+<p>官方下载地址：<a target="_blank" rel="noopener" href="https://windows.php.net/download/">https://windows.php.n…</a></p>
+<h3 id="2-修改文件"><a href="#2-修改文件" class="headerlink" title="2. 修改文件"></a>2. 修改文件</h3><p>进入目录，拷贝php.ini-production一份命名为php.ini作为php配置文件</p>
+<h3 id="3-配置php-in"><a href="#3-配置php-in" class="headerlink" title="3. 配置php.in"></a>3. 配置php.in</h3><h4 id="设置扩展文件路径，找到extension-dir，去掉前面分号并配置扩展库目录，如："><a href="#设置扩展文件路径，找到extension-dir，去掉前面分号并配置扩展库目录，如：" class="headerlink" title="设置扩展文件路径，找到extension_dir，去掉前面分号并配置扩展库目录，如："></a>设置扩展文件路径，找到extension_dir，去掉前面分号并配置扩展库目录，如：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension_dir = &quot;E:\php\env\php-8.0.3\ext&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="根据需求打开gd、mysqli、pdo-mysql、mbstring、curl等常用扩展使用，去掉前面分号即可，如：extension-gd2"><a href="#根据需求打开gd、mysqli、pdo-mysql、mbstring、curl等常用扩展使用，去掉前面分号即可，如：extension-gd2" class="headerlink" title="根据需求打开gd、mysqli、pdo_mysql、mbstring、curl等常用扩展使用，去掉前面分号即可，如：extension=gd2"></a>根据需求打开gd、mysqli、pdo_mysql、mbstring、curl等常用扩展使用，去掉前面分号即可，如：extension=gd2</h4><h4 id="设置时区为中国地区，date-timezone-PRC"><a href="#设置时区为中国地区，date-timezone-PRC" class="headerlink" title="设置时区为中国地区，date.timezone =PRC"></a>设置时区为中国地区，date.timezone =PRC</h4><h4 id="设置支持短标签写法，short-open-tag-Off改为short-open-tag-On"><a href="#设置支持短标签写法，short-open-tag-Off改为short-open-tag-On" class="headerlink" title="设置支持短标签写法，short_open_tag = Off改为short_open_tag = On"></a>设置支持短标签写法，short_open_tag = Off改为short_open_tag = On</h4><h4 id="开启cgi，以支持nginx与php通信（apache则采用模块化与php通信），分别找到以下关键词进行配置（去掉前面分号-开启）如下："><a href="#开启cgi，以支持nginx与php通信（apache则采用模块化与php通信），分别找到以下关键词进行配置（去掉前面分号-开启）如下：" class="headerlink" title="开启cgi，以支持nginx与php通信（apache则采用模块化与php通信），分别找到以下关键词进行配置（去掉前面分号;开启）如下："></a>开启cgi，以支持nginx与php通信（apache则采用模块化与php通信），分别找到以下关键词进行配置（去掉前面分号;开启）如下：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cgi.force_redirect = 1</span><br><span class="line">cgi.fix_pathinfo=1</span><br><span class="line">cgi.rfc2616_headers = 0</span><br></pre></td></tr></table></figure>
+<h4 id="配置session存储目录，为了安全尽可能设置为外网访问不到的服务器目录"><a href="#配置session存储目录，为了安全尽可能设置为外网访问不到的服务器目录" class="headerlink" title="配置session存储目录，为了安全尽可能设置为外网访问不到的服务器目录"></a>配置session存储目录，为了安全尽可能设置为外网访问不到的服务器目录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.save_path = &quot;C:/WINDOWS/Temp&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后把这整个文件夹添加到系统变量即可<br>PHP -v 可查看版本号</p>
+<p>说明：执行php命令若报错：PHP Warning: ‘C:\Windows\SYSTEM32\VCRUNTIME140.dll’ 14.14 is not compatible……需要Visual Studio 2015、2017 和 2019支持，根据实际情况下载安装。</p>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">I'm so cute. Please give me money.</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener" href='https://pic1.imgdb.cn/item/6338329b16f2c2beb1ed61a4.jpg' target='_blank' >
+                       <img src="https://pic1.imgdb.cn/item/6338329b16f2c2beb1ed61a4.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+<ul class="trm-post-copyright">
+    <li class="trm-post-copyright-author">
+        <strong>Post author: </strong>
+        Acerkaio
+    </li>
+    <li class="trm-post-copyright-link">
+        <strong>Post link: </strong>
+        <a href="https://www.acerkaio.top/2022/12/23/PHP%E7%8E%AF%E5%A2%83/" title="PHP环境">https://www.acerkaio.top/2022/12/23/PHP%E7%8E%AF%E5%A2%83/</a>
+    </li>
+    <li class="trm-post-copyright-license">
+        <strong>Copyright Notice: </strong>
+        All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 ">CC BY-NC-SA 4.0</a> unless otherwise stated.
+    </li>
+</ul>
+
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-mb-40 trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/01/13/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="trm-cover-frame trm-anima-link">
+            <img src="https://pic.imgdb.cn/item/63c16308be43e0d30e7bb7d2.jpg" alt="cover">
+        </a>
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%AD%A6%E4%B9%A0/">
+                    学习
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/01/13/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="trm-anima-link">
+                    树链剖分学习笔记
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/01/13</li>
+                <li>09:52</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2022/11/06/CSP-2022/" class="trm-cover-frame trm-anima-link">
+            <img src="https://www.ccf.org.cn/images/special/60thlogo.png" alt="cover">
+        </a>
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E8%AE%B0%E5%BD%95/">
+                    记录
+                </a>
+            </div>
+            <h5>
+                <a href="/2022/11/06/CSP-2022/" class="trm-anima-link">
+                    CSP-2022
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>22/11/06</li>
+                <li>12:12</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+
+                    <div class="trm-divider trm-mb-40"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.2
+            </span>
+            <span class="footer-separator"> | </span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                vv1.1.10
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            The blog has been lovely to run <span id="since" class="trm-accent-color"></span> day
+        </div>
+     
+
+    
+        <div class="trm-footer-item">
+            <strong>这是蒟蒻的小窝嘛？</strong>
+        </div>
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        BirthDay = new Date("08/30/2022 15:00:00");
+        today = new Date();
+        timeold = (today.getTime() - BirthDay.getTime());
+        msPerDay = 24 * 60 * 60 * 1000
+        day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  <div id="trm-back-top" class="trm-back-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+  
+  <!-- Plugin -->
+
+
+
+    
+    
+
+    
+<script src="//cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="//cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=v1.1.10"></script>
+    
+
+    
+
+    
+
+
+
+<!-- 评论插件 -->
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=v1.1.10"></script>
+
+</body>
+
+</html>

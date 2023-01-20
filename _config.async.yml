@@ -19,7 +19,7 @@ favicon:
   visibilitychange: true
   hidden: /failure.ico # Displays an icon when not visible
   showText: (/≧▽≦/)咦！又好了！
-  hideText: (●—●)喔哟，崩溃啦！
+  hideText: 网络错误，请刷新重试！
 
 # links
 links:
@@ -38,4 +38,4 @@ links:
   - name: Scorpio_Limit
     url: //scorpio-limit.github.io/
     image: //cdn.luogu.com.cn/upload/usericon/532992.png
-    desc: 「我劝天公重抖擞， 不拘一格降人才。 —— 龚自珍《己亥杂诗》」
+    desc: 天蝎座_极限

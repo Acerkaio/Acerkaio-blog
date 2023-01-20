@@ -154,7 +154,7 @@ about:
 footer:
   # Hexo link (Powered by Hexo).
   powered:
-    enable: false
+    enable: true
   # Beian icp information for Chinese users. In China, every legal website should have a beian icp in website footer.
   # https://beian.miit.gov.cn/
   beian:
@@ -168,7 +168,7 @@ footer:
     prefix: footer.tips
     start_time: 08/30/2022 15:00:00
   #
-  custom_text: <strong>QAQ</strong>
+  custom_text: <a href="https://icp.gov.moe/?keyword=20231721" target="_blank">萌ICP备20231721号</a>
 
 # archive
 archive:
