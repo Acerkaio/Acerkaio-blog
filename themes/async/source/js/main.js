@@ -37,16 +37,32 @@
 
         nextHeadChildren.forEach(item => {
           if (item.src)
-            scripts.findIndex(s => s.src === item.src) < 0 && scriptCDN.push(item);
+            scripts.findIndex(s => {
+              if (s.src === item.src) {
+                if (!s.dataset.reset) {
+                  return true
+                }
+                s.remove()
+              }
+            }) < 0 && scriptCDN.push(item);
           else
             scriptBlock.push(item.innerText)
         })
 
-        Promise.all(scriptCDN.map(item => this.loadScript(item))).then(_ => {
-          scriptBlock.forEach(code => {
-            this.runScriptBlock(code)
-          })
-        })
+        const run = async (cdns, blocks) => {
+          try {
+            for (var i = 0; i < cdns.length; i++) {
+              await this.loadScript(cdns[i]);
+            }
+            blocks.forEach(code => {
+              this.runScriptBlock(code)
+            })
+          } catch (e) {
+            console.log(e);
+          }
+        }
+        
+        run(scriptCDN, scriptBlock)
       }
     };
 
@@ -256,6 +272,7 @@
   const utils = {
     q: (...arg) => document.querySelector(...arg),
     qa: (...arg) => document.querySelectorAll(...arg),
+    gId: (...arg) => document.getElementById(...arg),
     debounce(func, wait, immediate) {
       let timeout;
       return function () {
@@ -268,20 +285,84 @@
         if (immediate && !timeout) func.apply(context, args);
       };
     },
-    wrap(el, wrapper) {
+    wrap(el, wrapper, options = {}) {
+      if (typeof wrapper === 'string') {
+        wrapper = document.createElement(wrapper)
+        for (const [key, value] of Object.entries(options)) {
+          wrapper.setAttribute(key, value)
+        }
+      }
+
       el.parentNode.insertBefore(wrapper, el);
-      el.parentNode.removeChild(el);
+      /* el.parentNode.removeChild(el); */
       wrapper.appendChild(el);
     },
     urlFor(path) {
       if (/^(#|\/\/|http(s)?:)/.test(path)) return path;
       return (window.ASYNC_CONFIG.root + path).replace(/\/{2,}/g, '/')
     },
+    siblings: (ele, selector) => {
+      return [...ele.parentNode.children].filter((child) => {
+        if (selector) {
+          return child !== ele && child.matches(selector)
+        }
+        return child !== ele
+      })
+    },
+    _message: [],
+    message(title, type = 'success') {
+      let message = document.createElement('div')
+      message.className = `trm-message ${type}`
+      message.style.top = `${30 + utils._message.length * 60}px`
+      message.innerText = title
+      document.body.append(message)
+      utils._message.push(message)
+      setTimeout(() => {
+        utils._message = utils._message.filter(item => item !== message)
+        document.body.removeChild(message)
+        utils._message.forEach((item, index) => {
+          item.style.top = `${30 + index * 60}px`
+        })
+      }, 2000)
+    },
+    loadScript(url) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url
+        script.setAttribute('async', 'false');
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function () {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(script)
+      })
+    },
+    isLoaded(key, url) {
+      return new Promise((resolve, reject) => {
+        if (window[key]) {
+          resolve();
+          return;
+        }
+        utils.loadScript(url).then(() => {
+          resolve()
+        })
+      })
+    },
+  }
+
+  const initFn = {
     InitFancybox() {
       if (window.Fancybox) {
         Fancybox.bind("[data-fancybox]");
-        Fancybox.bind('[data-fancybox="gallery"]');
-        Fancybox.bind('[data-fancybox="portfolio"]');
+        Fancybox.bind('[data-fancybox="light"],[data-fancybox="article"]', {
+          groupAll: true,
+        });
+        Fancybox.bind('[data-fancybox="dark"],[data-fancybox="article"]', {
+          groupAll: true,
+        });
         Fancybox.defaults.Hash = false;
       }
     },
@@ -316,11 +397,21 @@
     },
     InitPictures() {
       if (window.Fancybox) {
-        utils.qa("article img").forEach((img) => {
-          let span = document.createElement("span");
-          span.dataset.fancybox = "gallery"
-          span.dataset.src = img.src;
-          utils.wrap(img, span)
+        // 仅查找文章内图片
+        utils.qa("#article-container img:not(.no-fancybox)").forEach((img) => {
+          if (!img.parentNode.dataset.fancybox) {
+            let fancybox = "article"
+            if (img.classList.contains('trm-light-icon')) {
+              fancybox = "light"
+            } else if (img.classList.contains('trm-dark-icon')) {
+              fancybox = "dark"
+            }
+
+            utils.wrap(img, 'div', {
+              'data-src': img.dataset.src || img.src,
+              'data-fancybox': fancybox
+            })
+          }
         })
       }
     },
@@ -346,7 +437,7 @@
       let swich_input = utils.q('#trm-swich');
       if (!swich_input) return;
       let scroll_container = utils.q("#trm-scroll-container");
-      let switch_style = utils.q("#trm-switch-style");
+      /* let switch_style = utils.q("#trm-switch-style"); */
       /* Animated mask layers */
       let mode_swich_animation = utils.q('.trm-mode-swich-animation');
       let mode_swich_animation_frame = utils.q('.trm-mode-swich-animation-frame')
@@ -380,17 +471,11 @@
           scroll_container.style.opacity = 0;
           setTimeout(() => resolve(), 600);
         }).then(() => {
-          if (this.checked) {
-            setTimeout(function () {
-              mode_swich_animation.classList.add('trm-active');
-              switch_style.href = switch_style.href.replace('style-light', 'style-dark');
-            }, 200);
-          } else {
-            setTimeout(function () {
-              mode_swich_animation.classList.remove('trm-active');
-              switch_style.href = switch_style.href.replace('style-dark', 'style-light');
-            }, 200);
-          }
+          setTimeout(() => {
+            let type = this.checked ? 'add' : 'remove'
+            mode_swich_animation.classList[type]('trm-active');
+            document.documentElement.classList[type]('dark')
+          }, 200);
 
           setTimeout(function () {
             mode_swich_animation_frame.classList.remove('trm-active');
@@ -406,6 +491,7 @@
     InitLocomotiveScroll() {
       const container = utils.q('#trm-scroll-container');
       const backtop = utils.q('#trm-back-top')
+      const fixedContainer = utils.q('.trm-fixed-container')
 
       const scroll = new LocomotiveScroll({
         el: utils.q('#trm-scroll-container'),
@@ -428,8 +514,10 @@
       scroll.on('scroll', ({ scroll }) => {
         if (scroll.y > 500) {
           backtop.classList.add('active-el')
+          fixedContainer.classList.add('offset')
         } else {
           backtop.classList.remove('active-el')
+          fixedContainer.classList.remove('offset')
         }
       });
 
@@ -458,6 +546,7 @@
         mobile.removeListener(reload);
         scroll.destroy()
       });
+      return scroll
     },
     InitMenu() {
       utils.q('.trm-menu-btn').addEventListener('click', function () {
@@ -488,7 +577,7 @@
     },
     InitToc() {
       let tabs = document.getElementById('trm-tabs-nav')
-      if (tabs)
+      if (tabs) {
         tabs.addEventListener('click', function (e) {
           let to = e.target.dataset.to || e.target.parentElement.dataset.to;
           let isAcive = e.target.classList.contains('active') || e.target.parentElement.classList.contains('active');
@@ -501,6 +590,80 @@
             })
           }
         })
+
+        const listenSidebarTOC = () => {
+          const toc = utils.q('.post-toc')
+          const links = Array.from(toc.querySelectorAll('a.toc-link'))
+          if (!links.length) return;
+          const sections = links.map(item => utils.gId(decodeURI(item.getAttribute('href').replace('#', ''))))
+          const appFrame = document.querySelector('.trm-app-frame')
+          if (!appFrame) return;
+          const topBar = document.querySelector('.trm-top-bar')
+          let { bottom } = topBar.getBoundingClientRect()
+
+          function activateNavByIndex(target) {
+            target = target.parentNode
+            if (target.classList.contains('active-current'))
+              return
+
+            utils.qa('.post-toc .active').forEach((element) => {
+              element.classList.remove('active', 'active-current')
+            })
+            target.classList.add('active', 'active-current')
+            let parent = target.parentNode
+            while (!parent.matches('.post-toc')) {
+              if (parent.matches('li')) parent.classList.add('active');
+              parent = parent.parentNode
+            }
+          }
+
+          function findIndex(entries) {
+            let index = 0
+            let entry = entries[index]
+            if (entry.intersectionRatio <= 0) {
+              index = sections.indexOf(entry.target)
+              return index === 0 ? 0 : index - 1
+            }
+            for (; index < entries.length; index++) {
+              // 存在相交区域,表示进入该 标题-段落
+              if (entries[index].intersectionRatio > 0)
+                entry = entries[index]
+              else
+                return sections.indexOf(entry.target)
+            }
+            return sections.indexOf(entry.target)
+          }
+
+          function createIntersectionObserver(marginTop) {
+            // 扩大上面区域 避免图片懒加载等导致高度超出
+            marginTop = Math.floor(marginTop + 10000)
+            const intersectionObserver = new IntersectionObserver(
+              (entries, observe) => {
+                const scrollHeight = document.documentElement.scrollHeight + 100
+                if (scrollHeight > marginTop) { // 内容高度超出后监听区域后，重新添加监听
+                  observe.disconnect()
+                  createIntersectionObserver(scrollHeight)
+                  return
+                }
+                const index = findIndex(entries)
+                activateNavByIndex(links[index])
+              },
+              {
+                root: appFrame,
+                rootMargin: `${marginTop}px 0px -${appFrame.clientHeight - bottom - 20}px 0px`,
+                threshold: [0, 1],
+              },
+            )
+            sections.forEach((element) => {
+              element && intersectionObserver.observe(element)
+            })
+          }
+
+          createIntersectionObserver(document.documentElement.scrollHeight)
+        }
+
+        listenSidebarTOC()
+      }
     },
     InitCopyright() {
       if (window.ASYNC_CONFIG.creative_commons.clipboard) {
@@ -511,17 +674,119 @@
           const text = window.getSelection().toString();
           if (text) {
             event.preventDefault();
-            let copyrightText = `\n\n${i18n.author}${author}\n${i18n.copyright_link}${location.href}\n${i18n.copyright_license_title}${i18n.copyright_license_content.replace('undefined', 'CC' + creative_commons.license.toUpperCase() + ' ' + (creative_commons.license == 'zero' ? '1.0' : '4.0'))}`
+            const authorEl = document.getElementById('post-author')
+            if (authorEl) {
+              author = authorEl.innerText.replace('\n', '')
+            }
+
+            let originalLink = location.href
+            const originalLinkEl = document.getElementById('original-link')
+            if (originalLinkEl) {
+              originalLink = originalLinkEl.innerText.replace('\n', '')
+            }
+            let copyrightText = `\n\n${i18n.author}${author}\n${i18n.copyright_link}${originalLink}\n${i18n.copyright_license_title}${i18n.copyright_license_content.replace('undefined', 'CC' + creative_commons.license.toUpperCase() + ' ' + (creative_commons.license == 'zero' ? '1.0' : '4.0'))}`
             clipboardData.setData('text/plain', text + copyrightText);
           }
         });
       }
+    },
+    InitCodeBtn() {
+      const { i18n } = window.ASYNC_CONFIG
+      utils.qa('.highlight').forEach(element => {
+        const div = document.createElement("div");
+        div.className = 'code-btn'
+        const span = document.createElement('span')
+        span.innerText = i18n.copy_button
+        span.addEventListener('click', function (e) {
+          try {
+            let code = element.querySelector('.code')
+            if (!code) code = element.querySelector('table')
+            navigator.clipboard.writeText(code.innerText);
+            utils.message(i18n.copy_success)
+          } catch (error) {
+            utils.message(i18n.copy_failure, 'warning')
+          }
+        })
+        div.append(span)
+        element.append(div)
+      });
+    },
+    InitTabs() {
+      utils.qa('.trm-tabs .trm-tab > button').forEach(function (item) {
+        item.addEventListener('click', function (e) {
+          const $this = this
+          const $tabItem = $this.parentNode
+
+          if (!$tabItem.classList.contains('active')) {
+            const $tabContent = $tabItem.parentNode.nextElementSibling
+            const $siblings = utils.siblings($tabItem, '.active')[0]
+            $siblings && $siblings.classList.remove('active')
+            $tabItem.classList.add('active')
+            const tabId = $this.getAttribute('data-href').replace('#', '')
+            const childList = [...$tabContent.children]
+            childList.forEach(item => {
+              if (item.id === tabId) item.classList.add('active')
+              else item.classList.remove('active')
+            })
+          }
+        })
+      })
+    },
+    InitJustifiedGallery() {
+      const gallerys = utils.qa('.fj-gallery')
+      if (gallerys.length) {
+        gallerys.forEach(item => {
+          const imgList = item.querySelectorAll('img')
+          imgList.forEach(i => {
+            i.loading = "auto"
+            utils.wrap(i, 'div', {
+              class: 'fj-gallery-item',
+              'data-src': i.dataset.src || i.src,
+              'data-fancybox': 'gallery',
+            })
+          })
+        })
+
+        utils
+          .isLoaded('fjGallery', window.ASYNC_CONFIG.plugin.flickr_justified_gallery.js)
+          .then(() => {
+            gallerys.forEach((selector) => {
+              window.fjGallery(selector, {
+                itemSelector: '.fj-gallery-item',
+                rowHeight: 220,
+                gutter: 4,
+                onJustify: function () {
+                  this.$container.style.opacity = '1'
+                }
+              })
+            })
+          })
+      }
+    },
+    switchReadMode() {
+      const $body = document.body
+      $body.classList.add('trm-read-mode')
+      const newEle = document.createElement('button')
+      newEle.type = 'button'
+      newEle.title = window.ASYNC_CONFIG.i18n.exit_read_mode
+      newEle.className = `${window.ASYNC_CONFIG.icons.close} trm-exit-readmode trm-glow`
+      $body.appendChild(newEle)
+
+      function clickFn() {
+        $body.classList.remove('trm-read-mode')
+        newEle.remove()
+        newEle.removeEventListener('click', clickFn)
+      }
+
+      newEle.addEventListener('click', clickFn)
     }
   }
 
   //#region init
   /* preloader */
   function ready() {
+    window.switchReadMode = initFn.switchReadMode
+
     /* window title */
     if (window.ASYNC_CONFIG && window.ASYNC_CONFIG.favicon.visibilitychange) {
       window.originTitle = document.title;
@@ -548,8 +813,17 @@
       });
     }
 
-    /* Work with pictures in articles */
-    utils.InitPictures()
+    /* Initialize album */
+    initFn.InitJustifiedGallery()
+
+    /* Initialize with pictures in articles */
+    initFn.InitPictures()
+
+    /* Initialize with code blocks in articles */
+    initFn.InitCodeBtn()
+
+    /* Initialize the tabs in the article */
+    initFn.InitTabs()
 
     /* loading animate */
     utils.q('html').classList.add('is-animating');
@@ -564,64 +838,75 @@
     document.addEventListener('DOMContentLoaded', ready) : ready();
 
   /* swup */
-  window.ASYNC_CONFIG.swup && utils.InitSwup();
+  window.ASYNC_CONFIG.swup && initFn.InitSwup();
 
   /* menu */
-  utils.InitMenu()
+  initFn.InitMenu()
 
   /* theme mode switch */
-  utils.InitThemeMode(true)
+  initFn.InitThemeMode(true)
 
   /* counters */
-  utils.InitCounter();
+  initFn.InitCounter();
 
   /* locomotive scroll */
-  utils.InitLocomotiveScroll()
+  initFn.InitLocomotiveScroll()
 
   /* swiper */
-  utils.InitSwiper()
+  initFn.InitSwiper()
 
   /* fancybox */
-  utils.InitFancybox()
+  initFn.InitFancybox()
 
   /* toc */
-  utils.InitToc()
+  initFn.InitToc()
 
   /* copyright */
-  utils.InitCopyright()
+  initFn.InitCopyright()
   //#endregion
 
   //#region  Re/init
   document.addEventListener("swup:contentReplaced", function () {
+    document.body.classList.remove('trm-read-mode')
+
     /* The blog runs long */
     window.show_date_time && window.show_date_time();
 
-    /* Work with pictures in articles */
-    utils.InitPictures()
+    /* Initialize album */
+    initFn.InitJustifiedGallery()
+
+    /* Initialize with pictures in articles */
+    initFn.InitPictures()
+
+    /* Initialize with code blocks in articles */
+    initFn.InitCodeBtn()
+
+    /* Initialize with tabs in articles */
+    initFn.InitTabs()
 
     /* preloader */
     utils.q(".trm-scroll-container").style.opacity = 1;
 
     /* menu */
-    utils.InitMenu()
+    initFn.InitMenu()
 
     /* theme mode switch */
-    utils.InitThemeMode(true)
+    initFn.InitThemeMode(true)
 
     /* counters */
-    utils.InitCounter();
+    initFn.InitCounter();
 
     /* locomotive scroll */
-    utils.InitLocomotiveScroll()
+    initFn.InitLocomotiveScroll()
 
     /* swiper */
-    utils.InitSwiper()
+    initFn.InitSwiper()
 
     /* fancybox */
-    utils.InitFancybox()
+    initFn.InitFancybox()
 
     /* toc */
-    utils.InitToc()
+    initFn.InitToc()
 
   });
   //#endregion

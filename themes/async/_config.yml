@@ -1,6 +1,6 @@
 # user info
 user:
-  name: Acerkaio
+  name: ThemeAsync
   first_name: Theme
   last_name: Async
   email: 
@@ -23,37 +23,25 @@ favicon:
 
 # Theme resource files or plug-ins
 assets:
+  # 主題內部 js 的 cdn 配置
+  internal_provider: local
+  # 第三方 js 的 cdn 配置
+  third_party_provider: unpkg
+  # 主题使用到的插件
   plugin:
     row:
       css: css/plugins/bootstrap.row.css
-    swup:
-      js: //cdn.jsdelivr.net/npm/swup@2.0.19/dist/swup.min.js
-    locomotive_scroll:
-      css: //cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css
-      js: //cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js
-    fancybox: 
-      css: //cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css
-      js: //cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js
     typing:
       js: js/plugins/typing.js
-    search:
-      js: [//cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js, js/plugins/local_search.js]
-    swiper: 
-      css: //cdn.jsdelivr.net/npm/swiper@4.5.1/dist/css/swiper.min.css
-      js: //cdn.jsdelivr.net/npm/swiper@4.5.1/dist/js/swiper.min.js
-    katex:
-      js: //cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js
-      css: //cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css
-      auto_render: //cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js
-      copy_tex:
-        css: //cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.css
-        js: //cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js
+    hexo_theme_async:
+      js: js/main.js
+  # 图标配置
   icons: 
     type: font # font symbol
     css:  css/plugins/font-awesome.min.css
     js:
 
-# cdn
+# CDN 用户自定义插件时使用
 cdn:
   css: 
   js:
@@ -76,6 +64,10 @@ icons:
   close: fas fa-times
   search: fas fa-search
   reward: fas fa-hand-holding-usd
+  user_tag: fas fa-user-alt
+  toc_tag: fas fa-th-list
+  read: fas fa-book-reader
+  arrows: fas fa-arrows-alt-h
 
 # Top navigation menu
 top_bars:
@@ -83,10 +75,6 @@ top_bars:
     url: /
   - title: menu.archives
     url: /archives/
-  - title: menu.links
-    url: /links/
-  - title: menu.about
-    url: /about/
 
 # Banner settings
 banner:
@@ -94,57 +82,44 @@ banner:
     type: img
     bgurl: /img/banner.png
     bannerText: Hi my new friend!
+    position: top
+    fit: cover
   index:
-    type: video
-    bgurl: /img/晚上.mp4
-    bannerTitle: 深山踏红叶，<br>耳畔闻鹿鸣。
+    bannerTitle: 树深时见鹿，<br>溪午不闻钟。
     bannerText: Hi my new friend!
     videoUrl: 
   archive:
-    type: img
-    bgurl: /img/mountain.jpg
     bannerTitle: 云间连下榻，<br>天上接行杯。
     bannerText: The article archive
   links:
-    type: img
-    bgurl: /img/sky.jpg
     bannerTitle: 莫愁前路无知己，<br>天下谁人不识君。
     bannerText: A link to a friend's website
   comment:
     bannerTitle: 醉后不知天在水，<br>满船清梦压星河。
     bannerText: The magic tree hole
   about:
-    type: img
-    bgurl: /img/darkwaterskysunlightreflectionnatureoutdoorslandscapelake.jpg
     bannerTitle: 醉后不知天在水，<br>满船清梦压星河。
     bannerText: About me
 
 # Sidebar settings
 sidebar:
   typedTextPrefix: I`m
-  typedText: [ 'OIer' ]
+  typedText: 
   info: 
     - key: sidebar.residence
-      val: Earth
-    - key: sidebar.city
-      val: Ganzhou
-    - key: sidebar.age
-      val: 13
+      val: Mars
   social:
     - name: Github
       icon: fab fa-github
-      url: https://github.com/acerkaio
-    - name: Luogu
-      icon: fas fa-code
-      url: https://www.luogu.com.cn/user/514850
+      url: https://github.com
 
 # About page settings
 about:
   title: 如果一切都是镜花水月，那就让这万物走向终结。如果一切皆是命中注定，那就让这世界消失殆尽。
-  introduction: 注定地，我是 <strong>Acerkaio</strong>，相遇即是缘分，很感谢您能够饶有兴致地浏览这个页面。作为一名 OIer，我将分享：题目题解、生活日常、和一些有趣的东西。
+  introduction: 大家好，我是 <strong>Async</strong>，很高兴您能在浩瀚如烟的互联网世界里发现这个博客，更感谢您能够饶有兴致地浏览这个页面。建立这个 Blog 是出于兴趣爱好，我将在此分会分享一些学习笔记，可能还会分享少许图片、视频以及其他有趣东西的链接。
   blog: 
     <ul class="trm-list">
-      <li>作者：Acerkaio </li>
+      <li>程序：Hexo </li>
       <li>主题：Hexo-theme-async </li>
     </ul>
   privacy: 
@@ -164,13 +139,31 @@ footer:
   copyrightYear:
   # 
   live_time:
-    enable: true
+    enable: false
     prefix: footer.tips
-    start_time: 08/30/2022 15:00:00
+    start_time: 04/10/2022 17:00:00
   #
-  custom_text: <a href="https://icp.gov.moe/?keyword=20231721" target="_blank">萌ICP备20231721号</a>
+  custom_text:
 
-# archive
+# Here is a collection of articles related to configuration.
+#### Article configuration start ###
+# Reward (Donate)
+# If enable true, reward would be displayed in every posts and pages by default.
+# You can show or hide reward in a specific page throuth `reward: true | false` in Front Matter.
+reward:
+  enable: false
+  comment: reward.comment
+  # url:
+  methods:
+
+# Article table of contents
+toc:
+  enable: false
+  list_number: true
+  max_depth: 3
+  min_depth: 1
+
+# Archive page
 archive:
   type: more # less more
 
@@ -183,23 +176,24 @@ archive:
 creative_commons:
   license: by-nc-sa
   language: deed.zh
-  post: true
-  clipboard: true
+  post: false
+  clipboard: false
 
-# Reward (Donate)
-# If enable true, reward would be displayed in every posts and pages by default.
-# You can show or hide reward in a specific page throuth `reward: true | false` in Front Matter.
-reward:
-  enable: true
-  comment: reward.comment
-  # url:
-  methods:
-    - name: 支付宝
-      path: https://pic1.imgdb.cn/item/6338329b16f2c2beb1ed61a4.jpg
+# Customize the cover image
+cover:
+  default: /img/block.jpg
+  type: img
+
+# The previous and the next article
+post_pagination: 
+  enable: true 
+  type: large # large || small
 
 # img loading="lazy"
 lazyload:
   enable: true
+
+#### Article configuration end ###
 
 # Page Visit Statistics
 webAnalytics:  
@@ -212,15 +206,19 @@ webAnalytics:
 
 # comment
 comment:
-  enable: false
   bComments:
-    v: 0.0.12
-    env: 
+    enable: false
+    env: # 腾讯云环境id
+  twikoo:
+    enable: false
+    envId:   # 腾讯云环境id
+  # region: # 环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数
+  # option: # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
 
 # Theme mode 
 theme: 
   switch: true 
-  default: auto # style-light style-dark
+  default: style-light # style-light style-dark
 
 # Service Worker
 sw: false
@@ -255,3 +253,33 @@ search:
 # https://swup.js.org/
 # Whether swup is enabled
 swup: false
+
+# Datetime formatting
+datetime_foramt:
+  post_card:
+    date: YY/MM/DD
+    time: HH:mm
+    cover_date: DD
+    cover_date2: YYYY/MM
+  post_info:
+    date: MM/DD
+    time: HH:mm
+  archive:
+    date: MM/DD
+    time: HH:mm
+
+# Home page category card configuration
+categorie_card:
+  enable: true
+  len: 2
+  list:
+
+# Lower right button
+rightside:
+  readmode: true
+  aside: false
+
+# Replace Broken Images 
+error_img:
+  flink: /img/friend_404.gif
+  post_page: /img/404.jpg

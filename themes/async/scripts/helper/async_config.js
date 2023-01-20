@@ -23,10 +23,20 @@ hexo.extend.helper.register('async_config', function () {
             author: __('post.copyright.author') + __('symbol.colon'),
             copyright_link: __('post.copyright.link') + __('symbol.colon'),
             copyright_license_title: __('post.copyright.license_title') + __('symbol.colon'),
-            copyright_license_content: __('post.copyright.license_content')
+            copyright_license_content: __('post.copyright.license_content'),
+            copy_button: __('post.copy.button'),
+            copy_success: __('post.copy.success'),
+            copy_failure: __('post.copy.failure'),
+            open_read_mode: __('post.read_mode.open'),
+            exit_read_mode: __('post.read_mode.exit')
         },
         creative_commons: theme.creative_commons,
         swup: theme.swup,
+        plugin: {
+            flickr_justified_gallery: theme.assets.plugin.flickr_justified_gallery,
+            fancybox: theme.assets.plugin.fancybox
+        },
+        icons: theme.icons
     }
 
     if (config.search) {

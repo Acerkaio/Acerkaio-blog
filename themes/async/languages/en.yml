@@ -30,6 +30,7 @@ title:
   privacy: Privacy and Comments
   more: Read More
   all_archives: All Archives
+  year_archives: 'Archive for %s'
   other_articles: Other Articles
   unclassified: Unclassified
 
@@ -59,6 +60,18 @@ post:
     link: Post link
     license_title: Copyright Notice
     license_content: 'All articles in this blog are licensed under %s unless otherwise stated.'
+  copy:
+    button: Copy
+    success: Copied
+    failure: Copy failed
+  read_mode:
+    open: Enter reading mode
+    exit: Exit reading mode
+
+rightside:
+  readmode_title: Read Mode
+  back_to_top: Back To Top
+  aside: Toggle between single-column and double-column
 
 symbol:
   comma: ', '

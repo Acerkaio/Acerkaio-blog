@@ -22,13 +22,13 @@
 
 <!-- Favicon -->
 
-    <link href='https://pic.imgdb.cn/item/630dc55e16f2c2beb1efd163.png?v=v1.1.10' rel='icon' type='image/png' sizes='16x16' ></link>
+    <link href='https://pic.imgdb.cn/item/630dc55e16f2c2beb1efd163.png?v=0.0.0' rel='icon' type='image/png' sizes='16x16' ></link>
 
 
-    <link href='https://pic.imgdb.cn/item/630dc58516f2c2beb1eff192.png?v=v1.1.10' rel='icon' type='image/png' sizes='32x32' ></link>
+    <link href='https://pic.imgdb.cn/item/630dc58516f2c2beb1eff192.png?v=0.0.0' rel='icon' type='image/png' sizes='32x32' ></link>
 
 
-    <link href='https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png?v=v1.1.10' rel='apple-touch-icon' sizes='180x180' ></link>
+    <link href='https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png?v=0.0.0' rel='apple-touch-icon' sizes='180x180' ></link>
 
 
 
@@ -41,10 +41,10 @@
 <link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
 
     
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 
     
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
 
 
     
@@ -62,20 +62,16 @@
 
 
 <!-- Variable -->
-<script>window.ASYNC_CONFIG = {"hostname":"www.acerkaio.top","author":"Acerkaio","root":"/","typed_text":["OIer"],"favicon":{"logo":"https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png","icon16":"https://pic.imgdb.cn/item/630dc55e16f2c2beb1efd163.png","icon32":"https://pic.imgdb.cn/item/630dc58516f2c2beb1eff192.png","appleTouchIcon":"https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png","webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"网络错误，请刷新重试！"},"theme_version":"v1.1.10","theme":{"switch":true,"default":"auto"},"search":{"enable":false,"type":"engine","href":"https://www.google.com/search?q=site:","domain":null},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated."},"creative_commons":{"license":"by-nc-sa","language":"deed.zh","post":true,"clipboard":true},"swup":false};</script>
+<script>window.ASYNC_CONFIG = {"hostname":"www.acerkaio.top","author":"Acerkaio","root":"/","typed_text":["OIer"],"favicon":{"logo":"https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png","icon16":"https://pic.imgdb.cn/item/630dc55e16f2c2beb1efd163.png","icon32":"https://pic.imgdb.cn/item/630dc58516f2c2beb1eff192.png","appleTouchIcon":"https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png","webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"网络错误，请刷新重试！"},"theme_version":"0.0.0","theme":{"switch":true,"default":"style-light"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_button":"复制","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式"},"creative_commons":{"license":"by-nc-sa","language":"deed.zh","post":false,"clipboard":false},"swup":false,"plugin":{"flickr_justified_gallery":{"js":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"fancybox":{"css":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css","js":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"}},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h"}};</script>
 
 <!-- Theme mode css -->
-
-    <link data-swup-theme="style-light" rel="stylesheet" href="/css/style-light.css?v=v1.1.10" id="trm-switch-style">
-    <link data-swup-theme="style-dark" rel="stylesheet" href="/css/style-dark.css?v=v1.1.10" id="trm-switch-style">
-    <script>
-        let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
-        let catchMode = localStorage.getItem('theme-mode') || defaultMode;
-        let themeMode = catchMode === 'style-dark' ? 'style-light' : 'style-dark';
-        let linkdom = document.querySelector('[data-swup-theme='+themeMode+']');
-        if(linkdom) linkdom.remove();
-    </script>
-
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=0.0.0" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
 
 <!-- CDN -->
 
@@ -117,9 +113,9 @@
     <!-- change mode preloader -->
     <div class="trm-mode-swich-animation-frame">
     <div class="trm-mode-swich-animation">
-        <i class="i-sun"><i class="far fa-sun"></i></i>
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
         <div class="trm-horizon"></div>
-        <i class="i-moon"><i class="far fa-moon"></i></i>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
     </div>
 </div>
     <!-- change mode preloader end -->
@@ -138,7 +134,7 @@
 			<!-- logo -->
 			<a href="/" class="trm-logo-frame trm-anima-link">
 				
-					<img src="https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png" alt="logo">
+					<img alt="logo" src="https://pic.imgdb.cn/item/630b437916f2c2beb1691970.png">
 				
 				
 					<div class="trm-logo-text">
@@ -157,28 +153,35 @@
 						
 						<li class="menu-item-has-children ">
 							<a  href="/" target="">
-								Home
+								首页
 							</a>
 							
 						</li>
 						
 						<li class="menu-item-has-children ">
 							<a  href="/archives/" target="">
-								Archives
+								归档
 							</a>
 							
 						</li>
 						
 						<li class="menu-item-has-children ">
 							<a  href="/links/" target="">
-								Links
+								友链
 							</a>
 							
 						</li>
 						
 						<li class="menu-item-has-children ">
 							<a  href="/about/" target="">
-								About
+								关于
+							</a>
+							
+						</li>
+						
+						<li class="menu-item-has-children ">
+							<a  href="/album/" target="">
+								album
 							</a>
 							
 						</li>
@@ -193,16 +196,22 @@
 			<div class="trm-mode-switcher-place">
 				<!-- <div class="trm-hidden-switcher"> -->
 					<div class="trm-mode-switcher">
-					  <i class="far fa-sun"></i>
+					  <i class="iconfont far fa-sun"></i>
 					  <input class="tgl tgl-light" id="trm-swich" type="checkbox">
 					  <label class="trm-swich" for="trm-swich"></label>
-					  <i class="far fa-moon"></i>
+					  <i class="iconfont far fa-moon"></i>
 					</div>
 				  <!-- </div> -->
 			</div>
 			
 			<!-- mode switcher place end -->
 
+			
+				
+				<div id="trm-search-btn" class="trm-search-btn">
+					<i class="iconfont fas fa-search"></i>
+				</div>
+				 
 			 
 
 		</div>
@@ -219,7 +228,7 @@
     <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
     <!-- banner cover -->
-    <img src="/img/mountain.jpg" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3">
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/mountain.jpg">
     <!-- banner cover end -->
     
 
@@ -273,14 +282,18 @@
     <div class="container">
         <div class="row">
             
-                <div class="col-lg-4 hidden-sm">
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
                     <!-- main card -->
-                    <div class="trm-main-card-frame trm-sidebar">
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
     <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
     
         <!-- card header -->
 <div class="trm-mc-header">
-    <div class="trm-avatar-frame trm-mb-20"><img class="trm-avatar" src="https://pic.imgdb.cn/item/63c16146be43e0d30e78599e.jpg" alt="Avatar"> </div>
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="https://pic.imgdb.cn/item/63c16146be43e0d30e78599e.jpg">
+    </div>
     <h5 class="trm-name trm-mb-15">
         Acerkaio
     </h5>
@@ -301,11 +314,11 @@
 <div class="trm-social">
     
         <a href="https://github.com/acerkaio" title="Github" rel="nofollow" target="_blank">
-            <i class="fab fa-github"></i>
+            <i class="iconfont fab fa-github"></i>
         </a>
     
         <a href="https://www.luogu.com.cn/user/514850" title="Luogu" rel="nofollow" target="_blank">
-            <i class="fas fa-code"></i>
+            <i class="iconfont fas fa-code"></i>
         </a>
     
 </div>
@@ -339,7 +352,7 @@
                 Age:
             </div>
             <div class="trm-label trm-label-light">
-                13
+                不详
             </div>
         </li>
     
@@ -350,8 +363,8 @@
 <!-- action button -->
 <div class="text-center">
     <a href="mailto:what667172@163.com" class="trm-btn">
-        Contact Me
-        <i class="far fa-envelope"></i>
+        联系我
+        <i class="iconfont far fa-envelope"></i>
     </a>
 </div>
 <!-- action button end -->
@@ -362,23 +375,30 @@
                     <!-- main card end -->
                 </div>
             
-            <div class="col-lg-8">
+            <div id="page-content" class="col-lg-8">
                 <div class="trm-content" id="trm-content">
                     <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
 
                     <div class="row">
     <div class="col-lg-12">
         <div class="trm-card">
-            
+            <div style="padding: 0 20px;">
+                
+                    <ul class="row trm-tag-list trm-list" itemprop="keywords"><li class="col-lg-4 trm-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E4%BD%9C/" rel="tag">创作</a><span class="tag-list-count">2</span></li><li class="col-lg-4 trm-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a><span class="tag-list-count">1</span></li><li class="col-lg-4 trm-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a><span class="tag-list-count">1</span></li><li class="col-lg-4 trm-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a><span class="tag-list-count">1</span></li></ul>
+                
+            </div>
         </div>
     </div>
 </div>
 
 <!-- history -->
+
 <div class="row">
     <div class="col-lg-12">
         <!-- title -->
-        <h5 class="trm-mb-40 trm-title-with-divider">
+        <h5 class="trm-title-with-divider">
+            
+                学习
             
             <span data-number="01"></span>
         </h5>
@@ -402,7 +422,9 @@
                                 <div class="trm-text-sm trm-accent-color trm-mt-15">
                                     <ul class="trm-card-data trm-label ">
                                         <li class="trm-accent-color">01/13</li>
-                                        <li class="trm-accent-color">09:52</li>
+                                        <li class="trm-accent-color">21:52</li>
+                                        
+                                        <li>1.4k</li>
                                         
                                     </ul>
                                 </div>
@@ -417,6 +439,7 @@
         <!-- timeline end -->
     </div>
 </div>
+
 <!-- history end -->
 
 
@@ -428,7 +451,7 @@
 
 
 
-                    <div class="trm-divider trm-mb-40"></div>
+                    <div class="trm-divider footer-divider"></div>
 
                     <!-- footer -->
                     <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
@@ -440,26 +463,26 @@
     
         <div class="trm-footer-item">
             <span>
-                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.2
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.2
             </span>
-            <span class="footer-separator"> | </span>
+            <span class="footer-separator" data-separator=" | "></span>
             <span> 
-                Theme - 
+                主题 - 
                 <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
-                vv1.1.10
+                v0.0.0
             </span>
         </div>
       
 
     
         <div class="trm-footer-item">
-            The blog has been lovely to run <span id="since" class="trm-accent-color"></span> day
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
         </div>
      
 
     
         <div class="trm-footer-item">
-            <strong>这是蒟蒻的小窝嘛？</strong>
+            QwQ
         </div>
      
 </footer>
@@ -484,6 +507,13 @@
     </div>
 </div>
             <!-- body end -->
+
+            <!-- body -->
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+    
+</div>
+            <!-- body end -->
           </div>
         </div>
       </div>
@@ -492,10 +522,24 @@
   </div>
   <!-- app wrapper end -->
 
-  <div id="trm-back-top" class="trm-back-top">
-    <i class="fas fa-arrow-up"></i>
+  <div id="trm-back-top" class="trm-back-top" data-title="回到顶部">
+    <i class="iconfont fas fa-arrow-up"></i>
 </div>
   
+<div class="trm-search-popup">
+    <div class="trm-search-header">
+        <span class="trm-search-popup-btn-close">
+            <i class="iconfont fas fa-times"></i>
+        </span>
+    </div>
+    <div class="form trm-search-form">
+        <input class="trm-search-input" type="text" placeholder="搜索...">
+    </div>
+    <div class="trm-search-result-container">
+
+    </div>
+</div>
+
   <!-- Plugin -->
 
 
@@ -504,25 +548,32 @@
     
 
     
-<script src="//cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
     
-<script src="//cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
-
-    
-
-    
-        <script src="/js/plugins/typing.js?v=v1.1.10"></script>
-    
 
     
 
     
+        <script src="/js/plugins/typing.js?v=0.0.0"></script>
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=0.0.0"></script>
+    
+
+    <!-- 数学公式 -->
+    
 
 
+    <!-- 评论插件 -->
+    
 
-<!-- 评论插件 -->
 
 
 <!-- CDN -->
@@ -541,9 +592,24 @@
     
     <!-- baidu push -->
     
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
 
 
-<script id="async-script" src="/js/main.js?v=v1.1.10"></script>
+
+<script id="async-script" src="/js/main.js?v=0.0.0"></script>
 
 </body>
 

@@ -1,8 +1,8 @@
 .trm-btn {
     white-space     : nowrap;
-    background-color: @primary;
+    background-color: var(--primary, #afb42b);
     height          : 45px;
-    border          : solid 2px @primary;
+    border          : solid 2px var(--primary, #afb42b);
     color           : #fcfcfe;
     text-transform  : uppercase;
     font-size       : 11px;
@@ -15,23 +15,17 @@
     align-items     : center;
     .transition-mixin();
 
+    svg,
     i {
-        margin-top : -1px;
         margin-left: 10px;
-
-        &.fa-paper-plane {
-            margin-left: 0;
-        }
     }
 
-    .fa-arrow-right {
-        margin-top : -1px;
+    .arrow-right {
         margin-left: 10px;
         .transition-mixin();
     }
 
-    .fa-arrow-left {
-        margin-top  : -1px;
+    .arrow-left {
         margin-right: 10px;
         .transition-mixin();
     }
@@ -44,14 +38,14 @@
     &:hover {
         transform       : scale(1.03);
         color           : #fcfcfe;
-        background-color: @primary-weak;
-        border          : solid 2px @primary-weak;
+        background-color: var(--primary-weak, #afb42b);
+        border          : solid 2px var(--primary-weak, #afb42b);
 
-        .fa-arrow-right {
+        .arrow-right {
             transform: translateX(5px);
         }
 
-        .fa-arrow-left {
+        .arrow-left {
             transform: translateX(-5px);
         }
     }
@@ -75,6 +69,7 @@
             width: 40px;
         }
 
+        svg,
         i {
             font-size: 13px;
             margin   : 0;

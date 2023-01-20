@@ -30,6 +30,7 @@ title:
   privacy: 隐私权及评论
   more: 查看分类
   all_archives: 所有归档
+  year_archives: '%s 年的归档'
   other_articles: 其他文章
   unclassified: 未分类
 
@@ -59,6 +60,18 @@ post:
     link: 本文链接
     license_title: 版权声明
     license_content: '本博客所有文章除特别声明外，均默认采用 %s 许可协议。'
+  copy:
+    button: 复制
+    success: 复制成功
+    failure: 复制失败
+  read_mode:
+    open: 进入阅读模式
+    exit: 退出阅读模式
+
+rightside:
+  readmode_title: 阅读模式
+  back_to_top: 回到顶部
+  aside: 单栏和双栏切换
 
 symbol:
   comma: ，
