@@ -36,7 +36,7 @@ banner:
   archive:
     type: img
     bgurl: /img/mountain.jpg
-    bannerTitle: 云间连下榻，<br>天上接行杯。
+    bannerTitle: 天高散孤云，<br>落日澄空故乡影，飘摇游子心。
     bannerText: The article archive
   links:
     type: img
@@ -92,12 +92,13 @@ sidebar:
 
 # About page settings
 about:
-  title: 孤舟相访至天涯，万转云山路更赊。
+  title: 在夜空所有星星熄灭的时候，所有梦想、所有溪流，都能汇入同一片大海中，那时我们终会相见。
   introduction: 我是 <strong>Acerkaio</strong>，相遇即是缘分，很感谢您能够饶有兴致地浏览这个页面。作为一名 OIer，我将分享：题目题解、生活日常、和一些有趣的东西。
   blog: 
     <ul class="trm-list">
       <li>作者：Acerkaio </li>
       <li>主题：Async </li>
+      <li>背景图片：来自 wallhaven 与 wallpaper engine</li>
     </ul>
   privacy: 
     本网站不会追踪访客行为，且不要求访客提供任何敏感信息（比如真实姓名、身份证号码、手机号等），因而也不存在任何隐私泄漏问题。访客参与评论，必须遵守法律法规和基本道德规范，文明礼貌。严禁发布任何有关淫秽、反动、暴力、博彩、恐吓、低俗的内容或违法信息，在尊重言论自由的同时请保持和平与理性。请勿对他人采取不友好的评论或其它过激行为。
@@ -119,7 +120,7 @@ footer:
     prefix: footer.tips
     start_time: 08/30/2022 15:00:00
   #
-  custom_text: QwQ
+  custom_text: <a href="https://icp.gov.moe/?keyword=20231721" target="_blank">萌ICP备20231721号</a>
 
 # Reward (Donate)
 # If enable true, reward would be displayed in every posts and pages by default.
@@ -144,6 +145,8 @@ top_bars:
     url: /about/
   - title: album
     url: /album/
+  - title: CPSchecker
+    url: /CPSchecker/
 
     
 # Blog search
@@ -171,3 +174,14 @@ toc:
   list_number: true
   max_depth: 1145141919810
   min_depth: 1
+
+# Home page category card configuration
+categorie_card:
+  enable: true
+  len: 2
+  list:
+
+# Lower right button
+rightside:
+  readmode: true
+  aside: true
