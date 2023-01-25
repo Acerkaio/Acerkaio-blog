@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CSP-2022</title>
-    <url>/2022/11/06/CSP-2022/</url>
-    <content><![CDATA[<p>Boom!!!</p>
-<p>比赛“降智”。</p>
-<h3 id="J组"><a href="#J组" class="headerlink" title="J组"></a>J组</h3><p>T4大水题我竟然看都不看就写部分分QAQ。</p>
-<p>T2也是炸了，推到一个地方就暴力去解QAQ，看了一下用完全平方公式就可以解（我废了。</p>
-<p>（T3不会</p>
-<h3 id="S组"><a href="#S组" class="headerlink" title="S组"></a>S组</h3><p>T1 至今不会</p>
-<p>T2 考场上机子被宇宙射线社坏了，在那份代码里，我如果是手动输入就可以正常运行，但如果是粘贴就显示段错误QAQ我怎么荔枝。</p>
-<p>T2 本来就想 10-20 分钟骗个部分分，最后竟花了1小时，部分分还没骗到。</p>
-<h1 id="QAQ"><a href="#QAQ" class="headerlink" title="QAQ"></a>QAQ</h1>]]></content>
-      <categories>
-        <category>记录</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CF1730A/B题解</title>
     <url>/2022/10/01/CF1730B%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="TJ-时间"><a href="#TJ-时间" class="headerlink" title="TJ 时间"></a>TJ 时间</h2><h3 id="A-题："><a href="#A-题：" class="headerlink" title="A 题："></a>A 题：</h3><p>太水了，解法各种各样，真的没必要将（真的！</p>
@@ -57,13 +38,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/08/30/hello-world/</url>
-    <content><![CDATA[<p>HEXO 博客今天终于搭建好了，采用了 hexo-theme-async 。</p>
-<p>本博客将不采用评论，如需联系，请点击 CONTACT ME。 </p>
-]]></content>
-  </entry>
-  <entry>
     <title>PHP环境</title>
     <url>/2022/12/23/PHP%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>ε=(´ο｀*)))唉，为了以后不掉坑，现在做个笔记。</p>
@@ -78,11 +52,37 @@
 <p>说明：执行php命令若报错：PHP Warning: ‘C:\Windows\SYSTEM32\VCRUNTIME140.dll’ 14.14 is not compatible……需要Visual Studio 2015、2017 和 2019支持，根据实际情况下载安装。</p>
 ]]></content>
       <categories>
-        <category>创作</category>
+        <category>记录</category>
       </categories>
       <tags>
-        <tag>创作</tag>
+        <tag>记录</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>CSP-2022</title>
+    <url>/2022/11/06/CSP-2022/</url>
+    <content><![CDATA[<p>Boom!!!</p>
+<p>比赛“降智”。</p>
+<h3 id="J组"><a href="#J组" class="headerlink" title="J组"></a>J组</h3><p>T4大水题我竟然看都不看就写部分分QAQ。</p>
+<p>T2也是炸了，推到一个地方就暴力去解QAQ，看了一下用完全平方公式就可以解（我废了。</p>
+<p>（T3不会</p>
+<h3 id="S组"><a href="#S组" class="headerlink" title="S组"></a>S组</h3><p>T1 至今不会</p>
+<p>T2 考场上机子被宇宙射线社坏了，在那份代码里，我如果是手动输入就可以正常运行，但如果是粘贴就显示段错误QAQ我怎么荔枝。</p>
+<p>T2 本来就想 10-20 分钟骗个部分分，最后竟花了1小时，部分分还没骗到。</p>
+<h1 id="QAQ"><a href="#QAQ" class="headerlink" title="QAQ"></a>QAQ</h1>]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/08/30/hello-world/</url>
+    <content><![CDATA[<p>HEXO 博客今天终于搭建好了，采用了 hexo-theme-async 。</p>
+<p>本博客将不采用评论，如需联系，请点击 CONTACT ME。 </p>
+]]></content>
   </entry>
   <entry>
     <title>关于Simple-Luogu</title>
@@ -131,6 +131,38 @@
       </categories>
       <tags>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>国产系统Deepin20初体验</title>
+    <url>/2023/01/25/%E5%9B%BD%E4%BA%A7%E7%B3%BB%E7%BB%9FDeepin20%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h2 id="ISO-文件下载"><a href="#ISO-文件下载" class="headerlink" title="ISO 文件下载"></a>ISO 文件下载</h2><p>这里给个下载地址哦：<a href="https://www.deepin.org/zh/download/">https://www.deepin.org/zh/download/</a>。</p>
+<h2 id="浅谈一下"><a href="#浅谈一下" class="headerlink" title="浅谈一下"></a>浅谈一下</h2><p>先说优点：</p>
+<ol>
+<li><p>界面简洁，作为图形化操作系统，简洁是一大看点。</p>
+</li>
+<li><p>对于使用者友好，安装引导人性化。</p>
+</li>
+<li><p>免费。</p>
+</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li><p>感觉界面设计令人失望，大圆角使其显得臃肿。</p>
+</li>
+<li><p>功能不够完善。</p>
+</li>
+<li><p>五子棋机器人太菜了。</p>
+</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/63d11eecface21e9ef7e8f66.png" alt="Acerkaio qwq" loading="lazy"></p>
+<p>还有一点：我把缩小动画换成什么魔灯然后缩小一个界面就死机了，现在一开机就黑屏。qwq</p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
       </tags>
   </entry>
 </search>

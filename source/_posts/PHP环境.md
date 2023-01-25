@@ -1,8 +1,8 @@
 ---
 title: PHP环境
 date: 2022-12-23 17:56:46
-tags: 创作
-categories: 创作
+tags: 记录
+categories: 记录
 photos: https://pic.imgdb.cn/item/63a57be708b68301636112b0.jpg
 ---
 ## 0. 前言
