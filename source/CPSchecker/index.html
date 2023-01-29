@@ -65,6 +65,7 @@
 		var cl = 0;
 		var flag = 0;
 		var num = 10;
+		var lazy = 0;
 		function cling() {
 			document.getElementById("clcl").style.cursor = "crosshair";
 			setTimeout(function () { document.getElementById("clcl").style.cursor = "" }, 10);
@@ -108,18 +109,22 @@
 		}
 		function ac() {
 			cling();
-			if (flag == 0) {
-				b.innerHTML = 1;
-				flag = 1;
-				a = 1;
-				cl = 1;
-				time = 0;
-				star();
-			} else {
-				a += 1;
-				b.innerHTML = a;
+			if (lazy == 0) {
+				if (flag == 0) {
+					b.innerHTML = 1;
+					flag = 1;
+					a = 1;
+					cl = 1;
+					time = 0;
+					star();
+				} else {
+					a += 1;
+					b.innerHTML = a;
+				}
 			}
-
+		}
+		function la() {
+			setTimeout(function(){lazy = 0;}, 200)
 		}
 		function star() {
 			let intval = setInterval(function () {
@@ -132,6 +137,8 @@
 						a = 0;
 						clearInterval(intval);
 						flag = 0;
+						lazy = 1;
+						la();
 						return;
 					}
 				}
