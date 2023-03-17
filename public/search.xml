@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CSP-2022</title>
+    <url>/2022/11/06/CSP-2022/</url>
+    <content><![CDATA[<p>Boom!!!</p>
+<p>比赛“降智”。</p>
+<h3 id="J组"><a href="#J组" class="headerlink" title="J组"></a>J组</h3><p>T4大水题我竟然看都不看就写部分分QAQ。</p>
+<p>T2也是炸了，推到一个地方就暴力去解QAQ，看了一下用完全平方公式就可以解（我废了。</p>
+<p>（T3不会</p>
+<h3 id="S组"><a href="#S组" class="headerlink" title="S组"></a>S组</h3><p>T1 至今不会</p>
+<p>T2 考场上机子被宇宙射线社坏了，在那份代码里，我如果是手动输入就可以正常运行，但如果是粘贴就显示段错误QAQ我怎么荔枝。</p>
+<p>T2 本来就想 10-20 分钟骗个部分分，最后竟花了1小时，部分分还没骗到。</p>
+<h1 id="QAQ"><a href="#QAQ" class="headerlink" title="QAQ"></a>QAQ</h1>]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>KMP学习笔记</title>
+    <url>/2023/03/12/KMP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="重新定义水博客"><a href="#重新定义水博客" class="headerlink" title="重新定义水博客"></a>重新定义水博客</h3><p>border[y] = x 表示 b[1 ~ x] = b[(y - x + 1) ~ y]</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">find_border</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= lb; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (b[i] != b[j + <span class="number">1</span>] &amp;&amp; j) &#123; <span class="comment">//当失配时</span></span><br><span class="line">            j = border[j];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (b[i] == b[j + <span class="number">1</span>]) &#123; <span class="comment">//可以加入一个 </span></span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        border[i] = j;  <span class="comment">//储存 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">kmp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= la; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (a[i] != b[j + <span class="number">1</span>] &amp;&amp; j) j = border[j]; <span class="comment">//失恋了 </span></span><br><span class="line">        <span class="keyword">if</span> (a[i] == b[j + <span class="number">1</span>]) j++;  <span class="comment">//计入 </span></span><br><span class="line">        <span class="keyword">if</span> (j == lb) cout &lt;&lt; i - j + <span class="number">1</span> &lt;&lt; endl,j = border[j]<span class="comment">//防止j超过lb; //匹配van了 </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CF1730A/B题解</title>
     <url>/2022/10/01/CF1730B%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="TJ-时间"><a href="#TJ-时间" class="headerlink" title="TJ 时间"></a>TJ 时间</h2><h3 id="A-题："><a href="#A-题：" class="headerlink" title="A 题："></a>A 题：</h3><p>太水了，解法各种各样，真的没必要将（真的！</p>
@@ -59,43 +92,11 @@
       </tags>
   </entry>
   <entry>
-    <title>CSP-2022</title>
-    <url>/2022/11/06/CSP-2022/</url>
-    <content><![CDATA[<p>Boom!!!</p>
-<p>比赛“降智”。</p>
-<h3 id="J组"><a href="#J组" class="headerlink" title="J组"></a>J组</h3><p>T4大水题我竟然看都不看就写部分分QAQ。</p>
-<p>T2也是炸了，推到一个地方就暴力去解QAQ，看了一下用完全平方公式就可以解（我废了。</p>
-<p>（T3不会</p>
-<h3 id="S组"><a href="#S组" class="headerlink" title="S组"></a>S组</h3><p>T1 至今不会</p>
-<p>T2 考场上机子被宇宙射线社坏了，在那份代码里，我如果是手动输入就可以正常运行，但如果是粘贴就显示段错误QAQ我怎么荔枝。</p>
-<p>T2 本来就想 10-20 分钟骗个部分分，最后竟花了1小时，部分分还没骗到。</p>
-<h1 id="QAQ"><a href="#QAQ" class="headerlink" title="QAQ"></a>QAQ</h1>]]></content>
-      <categories>
-        <category>记录</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2022/08/30/hello-world/</url>
     <content><![CDATA[<p>HEXO 博客今天终于搭建好了，采用了 hexo-theme-async 。</p>
 <p>本博客将不采用评论，如需联系，请点击 CONTACT ME。 </p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>关于Simple-Luogu</title>
-    <url>/2022/08/30/%E5%85%B3%E4%BA%8ESimple-Luogu/</url>
-    <content><![CDATA[<h2 id="没错，一款崭新的洛谷样式，是我在开发-Smart-Luogu-后积累了许多经验后继而开发的简洁小清新样式。"><a href="#没错，一款崭新的洛谷样式，是我在开发-Smart-Luogu-后积累了许多经验后继而开发的简洁小清新样式。" class="headerlink" title="没错，一款崭新的洛谷样式，是我在开发 Smart-Luogu 后积累了许多经验后继而开发的简洁小清新样式。"></a>没错，一款崭新的洛谷样式，是我在开发 Smart-Luogu 后积累了许多经验后继而开发的简洁小清新样式。</h2><h2 id="整体外观十分清爽，不少处也有意想不到的动画、效果。"><a href="#整体外观十分清爽，不少处也有意想不到的动画、效果。" class="headerlink" title="整体外观十分清爽，不少处也有意想不到的动画、效果。"></a>整体外观十分清爽，不少处也有意想不到的动画、效果。</h2><h3 id="来体验一下吧："><a href="#来体验一下吧：" class="headerlink" title="来体验一下吧："></a>来体验一下吧：</h3><p><img src="https://pic.imgdb.cn/item/630df8b816f2c2beb115a012.png" loading="lazy"></p>
-<p>目前还没有官网，来 <a href="https://userstyles.world/style/6062/simple-luogu-smart-luogu">Link</a>。</p>
-]]></content>
-      <categories>
-        <category>创作</category>
-      </categories>
-      <tags>
-        <tag>创作</tag>
-      </tags>
   </entry>
   <entry>
     <title>树链剖分学习笔记</title>
@@ -163,6 +164,19 @@
       </categories>
       <tags>
         <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于Simple-Luogu</title>
+    <url>/2022/08/30/%E5%85%B3%E4%BA%8ESimple-Luogu/</url>
+    <content><![CDATA[<h2 id="没错，一款崭新的洛谷样式，是我在开发-Smart-Luogu-后积累了许多经验后继而开发的简洁小清新样式。"><a href="#没错，一款崭新的洛谷样式，是我在开发-Smart-Luogu-后积累了许多经验后继而开发的简洁小清新样式。" class="headerlink" title="没错，一款崭新的洛谷样式，是我在开发 Smart-Luogu 后积累了许多经验后继而开发的简洁小清新样式。"></a>没错，一款崭新的洛谷样式，是我在开发 Smart-Luogu 后积累了许多经验后继而开发的简洁小清新样式。</h2><h2 id="整体外观十分清爽，不少处也有意想不到的动画、效果。"><a href="#整体外观十分清爽，不少处也有意想不到的动画、效果。" class="headerlink" title="整体外观十分清爽，不少处也有意想不到的动画、效果。"></a>整体外观十分清爽，不少处也有意想不到的动画、效果。</h2><h3 id="来体验一下吧："><a href="#来体验一下吧：" class="headerlink" title="来体验一下吧："></a>来体验一下吧：</h3><p><img src="https://pic.imgdb.cn/item/630df8b816f2c2beb115a012.png" loading="lazy"></p>
+<p>目前还没有官网，来 <a href="https://userstyles.world/style/6062/simple-luogu-smart-luogu">Link</a>。</p>
+]]></content>
+      <categories>
+        <category>创作</category>
+      </categories>
+      <tags>
+        <tag>创作</tag>
       </tags>
   </entry>
 </search>
