@@ -1,0 +1,63 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+rss: /atom.xml
+
+home:
+  style: default           # default, detail
+
+favicon: /images/favicon-light-192.png                  # Path to the custom favicon (e.g. "/favicon.png" if your favicon file is located at /source/favicon.png)
+
+# Banner
+banner:
+  enable: true            # Display banner
+  url: /assets/banner.png
+  position: center         # Specifies the alignment of the image, see the "object-position" property in CSS
+  onAllPages: true         # Display banner on all pages
+
+# Appearence
+hue: 0                   # The hue of the theme color (e.g. red: 0, orange: 60, blue: 260, purple: 300, pink: 345)
+
+# Sidebar
+sidebar:
+  widgets:                 # Plugins to be enabled (profile, category, tag, archive, recent_posts)
+    normal:                # Scroll along with the page
+      - profile
+    sticky:                # Stick to the top of the page
+      - category
+      - tag
+      - archive
+      - recent_posts
+
+# Widget behavior
+archive_type: 'monthly'
+recent_posts_limits: 5
+
+# Personal info
+avatar: https://pic.imgdb.cn/item/64ba59041ddac507ccc80e2c.png
+author: Acerkaio
+subtitle: Dedicated to Elaina.
+links:
+  - name: Luogu
+    icon: fa-solid fa-user      # Find icon codes at https://fontawesome.com/search
+    url: https://www.luogu.com.cn/user/514850
+  - name: Steam
+    icon: fa-brands fa-steam
+    url: https://store.steampowered.com
+  - name: GitHub
+    icon: fa-brands fa-github
+    url: https://github.com/Acerkaio
+
+comment:
+  valine:
+    enable: false
+    appId: 
+    appKey: 
+    placeholder: Just go go
+    pageSize: 10
+    highlight: true
+    serverURLs: 
+    # Other supported parameters can be added here if needed
+    # Visit https://valine.js.org/configuration.html for more details
